@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1 style="text-align: center;">SIGN IN</h1>
+    <form action="signin_info" method="post">
+        {% csrf_token%}
+        Enter Username : <input type="text" name="username"><br>
+        Enter Password : <input type="text" name="password"><br>
+        <button type="submit" onclick="myfunc()">Create Account</button>
+        <script>
+            function myfunc(){
+                alert("Your account has been created successfully!")}
+
+        </script>
+      </form>
+{% endblock %}
