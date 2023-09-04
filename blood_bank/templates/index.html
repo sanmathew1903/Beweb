@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>ADD USERS</h1>
+<form action="add" method="post">
+  {% csrf_token%}
+  Enter username : <input type="text" name="username"><br>
+  Enter password : <input type="text" name="password"><br>
+  <input type="submit">
+</form>
+<br>
+
+<form action="display">
+  <button type="submit" class="btn btn-success">Display</button>
+</form>
+
+{% endblock %} 
