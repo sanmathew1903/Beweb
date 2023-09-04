@@ -1,17 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>ADD USERS</h1>
+<h1>ADD DONORS</h1>
 <form action="add" method="post">
   {% csrf_token%}
-  Enter username : <input type="text" name="username"><br>
-  Enter password : <input type="text" name="password"><br>
+  Enter Name : <input type="text" name="name"><br>
+  Enter Age : <input type="int" name="age"><br>
+  Enter Blood Group: <input type="text" name="blood_type"><br>
   <input type="submit">
 </form>
 <br>
+<br>
 
 <form action="display">
-  <button type="submit" class="btn btn-success">Display</button>
+  <button type="submit" class="btn btn-success">DISPLAY </button>
 </form>
 
 {% endblock %} 

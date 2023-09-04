@@ -5,9 +5,13 @@ def index(request):
     return render(request,'index.html')
 
 def add(request):
-    user=request.POST['username']
-    pswd=request.POST['password']
-    dict={user:pswd}
+
+    name=request.POST['name']
+    age=int(request.POST['age'])
+    blood_type=request.POST['blood_type']
+
+    dict={name:[age,blood_type]}
+    print(dict)
     userlist.append(dict)
     return render(request,'index.html')
     
