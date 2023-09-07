@@ -6,7 +6,7 @@ users=[]
 # Create your views here.
 
 def signin(request):
-    return render(request,'signin.html')
+    return render(request,'register.html')
 
 def signin_info(request):
     username=request.POST['username']
