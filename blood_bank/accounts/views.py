@@ -14,12 +14,26 @@ def register(request):
         if password1==password2:
             if User.objects.filter(username=username).exists() or User.objects.filter(email=email).exists():
                 messages.info(request,"user can't be registered \n")
+                return render(request,'register.html')
             else:
                 user=User.objects.create_user(username=username,password=password1,email=email,first_name=first_name,last_name=last_name)
                 user.save()
-                
-        return render(request,'register.html')
+                return render(request,'loginpage.html')
     
     else:
         
         return render(request,'register.html')
+    
+def login(request):
+    if request.method=='POST':
+        username=request.POST['username']
+        password=request.POST['password']
+        user=auth.authenticate(username=username,password=password)
+        if user is not None:
+            auth.login(request,user)
+            return render(request,'index.html')
+        else:
+            return render(request,'loginpage.html')
+            
+    else:
+        return render(request,'login.html')
