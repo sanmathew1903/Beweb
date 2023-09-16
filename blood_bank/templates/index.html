@@ -40,7 +40,16 @@
   {% csrf_token%}
   Enter Name : <input type="text" name="name"><br>
   Enter Age : <input type="int" name="age"><br>
-  Enter Blood Group: <input type="text" name="blood_type"><br>
+  Enter Blood Group: <select name="blood_type" >
+    <option value="A+">A+</option>
+    <option value="A-">A-</option>
+    <option value="B+">B+</option>
+    <option value="B-">B-</option>
+    <option value="O+">O+</option>
+    <option value="O-">O-</option>
+    <option value="AB+">AB+</option>
+    <option value="AB-">AB-</option>
+  </select><br>
   <button type="submit" class="btn btn-success">Submit</button>
   
 </form>

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
+from .models import Donors
 userlist=[]
 users=[]
 # Create your views here.
@@ -37,7 +37,10 @@ def add(request):
     name=request.POST['name']
     age=int(request.POST['age'])
     blood_type=request.POST['blood_type']
-    dict={name:[age,blood_type]}
+    
+    en=Donors(D_name=name,D_age=age,D_blood=blood_type)
+    en.save()
+
     print(dict)
     userlist.append(dict)
     return render(request,'index.html')
