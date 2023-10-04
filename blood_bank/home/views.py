@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import Donors
-userlist=[]
-users=[]
+from django.urls import reverse
+from django.views.decorators.cache import never_cache
+
 # Create your views here.
 
 '''def signin(request):
@@ -22,28 +23,36 @@ def login_info(request):
     for i in users:
         for j in i:
             if j==username and i[j]==password:
-                return render(request,'index.html')
+                return render(request,'donor.html')
     return HttpResponse("<html><body><h1>NO USER FOUND</h1></body></html>")'''
 
 
 
+@never_cache
 def loginpage(request):
     return render(request,'loginpage.html')
 
-def index(request):
-    return render(request,'index.html')
+@never_cache
+def donor(request):
+    return render(request,'donor.html')
 
-def add(request):
-    name=request.POST['name']
-    age=int(request.POST['age'])
-    blood_type=request.POST['blood_type']
-    
-    en=Donors(D_name=name,D_age=age,D_blood=blood_type)
-    en.save()
 
-    print(dict)
-    userlist.append(dict)
-    return render(request,'index.html')
+@never_cache
+def donor_add(request):
+    print('hllo')
+    if request.method=='POST':
+            name=request.POST['name']
+            age=int(request.POST['age'])
+            blood_type=request.POST['blood_type']
+            en=Donors(D_name=name,D_age=age,D_blood=blood_type)
+            en.save()
+            return redirect('login')
+            
+    else:
+            return redirect('donor')
+        
     
+@never_cache
 def display(request):
-    return render(request,'display.html',{'data':userlist})
+    #donor_data=Donors.objects.all()
+    return render(request,'display.html',{'data':Donors.objects.all()})

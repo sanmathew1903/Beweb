@@ -8,30 +8,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script>
+      function backfunc()
+      {
+
+      }
+    </script>
 </head>
 <body>
   <h1> DISPLAY </h1>
-    <table class="table table-dark">
-        <thead>
-          <tr>
-            <th scope="col">NAME</th>
-            <th scope="col">AGE</th>
-            <th scope="col">BLOOD GROUP</th>
-          </tr>
+  {% csrf_token %}
+  <table class="table table-dark">
+
+    <thead>
+      <tr>
+        <th scope="col">NAME</th>
+        <th scope="col">AGE</th>
+        <th scope="col">BLOOD GROUP</th>
+      </tr>
           
         </thead>
         <tbody>
+        
+          {% for item in data %}   
           
-        {% for item in data %}   
-          {% for key,value in item.items %}
-            <tr>
-              <th scope="row">{{ key }}</th>
-              {% for var in value %}
-                <td>{{ var }}</td>
-              {% endfor %}
-            </tr>  
+          <tr>
+            <th scope="row">{{item.D_name}}</th>
+            <td>{{ item.D_age }}</td>
+            <td>{{ item.D_blood }}</td>      
+          </tr>  
           {% endfor %}
-        {% endfor %}
+        
         </tbody>
       </table>
       
