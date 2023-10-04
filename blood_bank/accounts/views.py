@@ -39,7 +39,7 @@ def login(request):
         user=auth.authenticate(username=username,password=password)
         if user is not None:
             auth.login(request,user)
-            return render(request,'donor.html')
+            return redirect('donor_add')
             
         else:
             return redirect('loginpage')

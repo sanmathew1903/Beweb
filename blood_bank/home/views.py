@@ -1,7 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import Donors
-from django.urls import reverse
 from django.views.decorators.cache import never_cache
 
 # Create your views here.
@@ -39,17 +38,18 @@ def donor(request):
 
 @never_cache
 def donor_add(request):
-    print('hllo')
+    
     if request.method=='POST':
             name=request.POST['name']
             age=int(request.POST['age'])
             blood_type=request.POST['blood_type']
             en=Donors(D_name=name,D_age=age,D_blood=blood_type)
             en.save()
-            return redirect('login')
+            return redirect('donor_add')
             
     else:
-            return redirect('donor')
+    
+        return render(request,'donor.html')
         
     
 @never_cache
