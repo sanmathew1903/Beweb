@@ -13,7 +13,7 @@ def signin_info(request):
     password=request.POST['password']
     dict={username:password}
     users.append(dict)
-    return render(request,'loginpage.html')
+    return render(request,'index.html')
 
 
 def login_info(request):
@@ -28,8 +28,8 @@ def login_info(request):
 
 
 @never_cache
-def loginpage(request):
-    return render(request,'loginpage.html')
+def index(request):
+    return render(request,'index.html')
 
 @never_cache
 def donor(request):

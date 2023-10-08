@@ -22,7 +22,7 @@ def register(request):
             else:
                 user=User.objects.create_user(username=username,password=password1,email=email,first_name=first_name,last_name=last_name)
                 user.save()
-                return redirect('loginpage')
+                return redirect('index')
         else:
             return redirect('register')
                 
@@ -42,7 +42,7 @@ def login(request):
             return redirect('donor_add')
             
         else:
-            return redirect('loginpage')
+            return redirect('index')
             
     else:
             return render(request,'login.html')
@@ -51,5 +51,5 @@ def login(request):
 @never_cache
 def logout(request):
     auth.logout(request)
-    return redirect (reverse('loginpage'))
+    return redirect (reverse('index'))
     
