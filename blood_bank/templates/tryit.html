@@ -3,120 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blood Donation</title>
+    <title>Blood Donation Login</title>
     <style>
-        /* Global Styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-.container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Header Styles */
-.header {
-    background-color: #D9534F;
-    color: #fff;
-    text-align: center;
-    padding: 70px 0;
-}
-
-/* About Styles */
-.about {
-    background-color: #F5F5F5;
-    padding: 50px 0;
-}
-
-/* Donation Information Styles */
-.donate-info {
-    padding: 50px 0;
-}
-
-/* Call to Action Styles */
-.cta {
-    background-color: #D9534F;
-    color: #fff;
-    text-align: center;
-    padding: 50px 0;
-}
-
-.btn {
-    background-color: #fff;
-    color: #D9534F;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: text-decoration 0.2s;
-}
-.btn:hover
-{
-    text-decoration: underline;
-}
-
-/* Footer Styles */
-.footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-}
-
+        body {
+            background-color: #f7f7f7;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .login-container {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            width: 400px;
+        }
+        
+        .login-box {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #D9534F;
+        }
+        
+        .login-form {
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            font-weight: bold;
+        }
+        
+        input {
+            width: 90%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        button {
+            background-color: #D9534F;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #D43F3A;
+        }
+        
+        .forgot-password {
+            display: block;
+            text-decoration: none;
+            color: #D9534F;
+            margin-top: 10px;
+        }
+        
     </style>
 </head>
 <body>
-    <!-- Header Section -->
-    <header class="header">
-        <div class="container">
+    <div class="login-container">
+        <div class="login-box">
             <h1>Welcome to Blood Donation</h1>
-            <h4>Your donation can save lives.</h4>
-            <button class="btn">Register</button>
-            <button class="btn">Login</button>
+            <form class="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+            <a href="#" class="forgot-password">Forgot Password?</a>
         </div>
-    </header>
-
-    <!-- About Section -->
-    <section class="about">
-        <div class="container">
-            <h2>About Us</h2>
-            <p>We are dedicated to making a difference by helping those in need through the generosity of blood donors. Join our mission to save lives and be a hero today!</p>
-        </div>
-    </section>
-
-    <!-- Donation Information Section -->
-    <section class="donate-info">
-        <div class="container">
-            <h2>Why Donate Blood?</h2>
-            <ul>
-                <li>It saves lives in emergencies</li>
-                <li>It helps patients undergoing medical treatment</li>
-                <li>It supports surgeries and cancer treatments</li>
-                <li>It has numerous health benefits for the donor</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Call to Action Section -->
-    <section class="cta">
-        <div class="container">
-            <h2>Ready to Donate?</h2>
-            <p>Find a donation center near you and be a hero.</p>
-            <a href="#" class="btn">Find a Center</a>
-        </div>
-    </section>
-
-    <!-- Footer Section -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2023 Blood Donation</p>
-        </div>
-    </footer>
-
-    <link rel="stylesheet" href="styles.css">
+    </div>
 </body>
 </html>
