@@ -46,6 +46,7 @@ def donor_add(request):
             email=request.POST['email']
             city=request.POST['city']
             phone=request.POST['phone_no']
+            print(name)
             en=Donors(D_name=name,D_age=age,D_blood=blood_type,D_city=city,D_phone=phone,D_email=email)
             en.save()
             return redirect('donor_add')
